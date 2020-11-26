@@ -5,7 +5,6 @@ Lic. Dennis Aldana
 Lab4
 Mario Perdomo
 Carnet 18029
-
 """
 import pygame
 from math import pi, cos, sin, atan2
@@ -47,15 +46,11 @@ enemies = [
     "y": 425,
     "texture": pygame.image.load('./sprites/sprite3.png')
   },
+
   {
     "x": 320,
     "y": 420,
     "texture": pygame.image.load('./sprites/sprite4.png')
-  },
-  {
-    "x": 800,
-    "y": 600,
-    "texture": pygame.image.load('./sprites/goal_3.png')
   }
 ]
 
@@ -246,7 +241,8 @@ def main_menu():
         clock.tick(15)
 
 def win_screen():
-    while True:
+    start = False
+    while start == False:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit(0)
@@ -274,6 +270,7 @@ while True:
     #cantidad de pixeles por movimiento
     d = 10
     screen.fill(black)
+
     for e in pygame.event.get():
         if e.type == pygame.QUIT or (e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE):
             exit(0)
@@ -290,7 +287,7 @@ while True:
                 raymap.player["x"] -= int(d * cos(raymap.player["a"]))
                 raymap.player["y"] -= int(d * sin(raymap.player["a"]))
     #evento cuando se acerca al trofeo
-    if(785<raymap.player["x"]<825 and 585<raymap.player["y"]<625):
+    if(350<raymap.player["x"]<375 and 250<raymap.player["y"]<275):
         break
                 
     
